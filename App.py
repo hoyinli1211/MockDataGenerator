@@ -61,7 +61,7 @@ def create_data(type, choice, n):
   return df
 
 #Main Page
-st.title("Mock Data Generation")
+st.title("Mock Data Generator")
 tabs = st.tabs(["Note","Configuration & Mock Data Generation"])
 
 tab_note = tabs[0]
