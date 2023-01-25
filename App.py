@@ -126,7 +126,7 @@ with tab_main:
   # Get the list of providers for the selected locale
   #data_type_choice = list(data_type_mapping.keys())
   customer_profile_choice = list(customer_profile.keys())
-  transactional_choice = list(transactiona.keys())
+  transactional_choice = list(transactional.keys())
   digital_footprint_choice = list(digital_footprint.keys())
       
   # Ask the user to select data types
