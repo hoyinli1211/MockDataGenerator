@@ -104,7 +104,7 @@ def create_data(data_mapping, choice, n):
 
   # Iterate through the selected data types
   for data_type in choice:
-      method = data_mapping[data_type]
+      method = data_mapping.get(data_type)
       data[data_type] = [method() for _ in range(n)]
   df = pd.DataFrame(data)
   return df
