@@ -60,7 +60,7 @@ customer_profile = {
   "phone_number": fake.phone_number,
   "date_of_birth": fake.date_of_birth,
   "gender": lambda: fake.random_element(elements=("male", "female")),
-  "hkid": fake.hkid,
+  "ssn": fake.ssn,
   "company_suffix": fake.company_suffix,
   "company": fake.company,
 }
