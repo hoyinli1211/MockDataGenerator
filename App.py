@@ -134,8 +134,9 @@ with tab_main:
   customer_profile_pick = st.multiselect("Customer Profile", customer_profile_choice)
   transactional_pick = st.multiselect("Transactional", transactional_choice)
   digital_footprint_pick = st.multiselect("Digital Footprint", digital_footprint_choice)
+  st.write(type(digital_footprint_pick))
   data_type_pick = [customer_profile_pick,transactional_pick,digital_footprint_pick]
-  
+  st.write(type(data_type_pick))
   # Use the `number_input` widget to gather the user's desired number of records
   num_records = st.number_input("Enter the number of records to generate", value=1000, min_value=1)
   
