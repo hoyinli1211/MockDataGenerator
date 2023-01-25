@@ -94,7 +94,10 @@ digital_footprint = {
   "ascii_safe_email":fake.ascii_safe_email
 }
 
-data_type_mapping = {**customer_profile, **transactional, **digital_footprint}
+data_type_mapping = {}
+data_type_mapping.update(customer_profile)
+data_type_mapping.update(transactional)
+data_type_mapping.update(digital_footprint)
 
 def create_data(data_mapping, choice, n):
 
