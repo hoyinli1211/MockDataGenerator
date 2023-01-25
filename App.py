@@ -66,18 +66,23 @@ customer_profile = {
 }
 
 transactional = {
-  "tran_date": lambda: fake.date_time_between_dates(date_start=datetime(2023,1,1), date_end=datetime(2023,1,30)),
+  "tran_date": lambda: fake.date_time_between_dates(datetime_start=datetime(2023,1,1), datetime_end=datetime(2023,1,30)),
   "tran_datetime": fake.date_time,
   "tran_amount": lambda: random.randint(1, 100000),
   "tran_CD": lambda:fake.random_element(elements=("debit", "credit")),
   "tran_status": lambda: fake.random_element(elements=("approved", "declined", "pending")),
   "tran_type": lambda:fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
   "tran_channel": lambda:fake.random_element(elements=("Internet Banking","Mobile Banking","Branch/ATM")),
-  "ctp_name": fake.name
+  "ctp_name": fake.name,
+  "credit_card_number": fake.credit_card_number,
+  "bank_account_number": fake.bank_account_number,
+  "currency_code": fake.currency_code(),
+  "currency_name": fake.currency_name(),
+  "cryptocurrency_code": fake.cryptocurrency_code()
 }
 
 digital_footprint = {
-  "event_datetime": lambda: fake.date_time_between_dates(date_start=datetime(2023,1,1), date_end=datetime(2023,1,30)),
+  "event_datetime": lambda: fake.date_time_between_dates(datetime_start=datetime(2023,1,1), datetime_end=datetime(2023,1,30)),
   "username": fake.user_name,
   "ipv4": fake.ipv4,
   "ipv6": fake.ipv6,
