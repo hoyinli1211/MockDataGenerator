@@ -66,7 +66,7 @@ customer_profile = {
 }
 
 transactional = {
-  "tran_date": fake.date_time_this_decade,
+  "tran_date": lambda: fake.date_time_between_dates(date_start=datetime(2023,1,1), date_end=datetime(2023,1,30)),
   "tran_datetime": fake.date_time,
   "tran_amount": lambda: random.randint(1, 100000),
   "tran_CD": lambda:fake.random_element(elements=("debit", "credit")),
@@ -77,7 +77,7 @@ transactional = {
 }
 
 digital_footprint = {
-  "event_datetime": lambda: fake.date_between_dates(date_start=datetime(2023,1,1), date_end=datetime(2023,1,30)),
+  "event_datetime": lambda: fake.date_time_between_dates(date_start=datetime(2023,1,1), date_end=datetime(2023,1,30)),
   "username": fake.user_name,
   "ipv4": fake.ipv4,
   "ipv6": fake.ipv6,
