@@ -77,7 +77,7 @@ transactional = {
 }
 
 digital_footprint = {
-  "event_datetime": fake.date_between_dates(date_start=datetime(2023,1,1), date_end=datetime(2023,1,30)),
+  "event_datetime": lambda: fake.date_between_dates(date_start=datetime(2023,1,1), date_end=datetime(2023,1,30)),
   "username": fake.user_name,
   "ipv4": fake.ipv4,
   "ipv6": fake.ipv6,
