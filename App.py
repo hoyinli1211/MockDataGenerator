@@ -2,7 +2,6 @@ import streamlit as st
 from faker import Faker
 import pandas as pd
 import random
-from datetime import date, datetime, timedelta
 
 #Sidebar
 st.sidebar.title("Instructions:")
