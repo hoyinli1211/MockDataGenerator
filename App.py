@@ -96,15 +96,15 @@ digital_footprint = {
 
 data_type_mapping = {**customer_profile, **transactional, **digital_footprint}
 
-def create_data(type, choice, n):
+def create_data(data_mapping, choice, n):
 
-  type = data_type_mapping
+  #type = data_type_mapping
   # Create an empty dataframe
   data = {}
 
   # Iterate through the selected data types
   for data_type in choice:
-      method = type[data_type]
+      method = data_mapping[data_type]
       data[data_type] = [method() for _ in range(n)]
   df = pd.DataFrame(data)
   return df
