@@ -76,7 +76,7 @@ transactional = {
 }
 
 digital_footprint = {
-  "event_datetime": fake.date_time_this_decade(),
+  "event_datetime": fake.date_time_this_decade,
   "username": fake.user_name,
   "ipv4": fake.ipv4,
   "ipv6": fake.ipv6,
