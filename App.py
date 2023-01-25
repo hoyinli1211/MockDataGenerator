@@ -134,7 +134,7 @@ with tab_main:
   customer_profile_pick = st.multiselect("Select data types", customer_profile_choice)
   transactional_pick = st.multiselect("Select data types", transactional_choice)
   digital_footprint_pick = st.multiselect("Select data types", digital_footprint_choice)
-  data_type_pick = []
+  data_type_pick = {}
   data_type_pick = data_type_pick.extend(customer_profile_pick).extend(transactional_pick).extend(digital_footprint_pick)
 
   # Use the `number_input` widget to gather the user's desired number of records
