@@ -2,7 +2,7 @@ import streamlit as st
 from faker import Faker
 import pandas as pd
 import random
-from date import datetime 
+import datetime 
 
 #Sidebar
 st.sidebar.title("Instructions:")
@@ -77,7 +77,7 @@ transactional = {
 }
 
 digital_footprint = {
-  "event_datetime": fake.date_between_dates(date_start=date(2023,1,1), date_end=date(2023,1,5)),
+  "event_datetime": fake.date_between_dates(date_start=datetime.datetime(2023,1,1), date_end=datetime.datetime(2023,1,5)),
   "username": fake.user_name,
   "ipv4": fake.ipv4,
   "ipv6": fake.ipv6,
