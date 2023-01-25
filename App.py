@@ -94,10 +94,7 @@ digital_footprint = {
   "ascii_safe_email":fake.ascii_safe_email
 }
 
-data_type_mapping = {}
-data_type_mapping.update(customer_profile)
-data_type_mapping.update(transactional)
-data_type_mapping.update(digital_footprint)
+data_type_mapping = {**customer_profile, **transactional, **digital_footprint}
 
 def create_data(data_mapping, choice, n):
 
@@ -128,17 +125,19 @@ with tab_main:
 
   fake = Faker()
   # Get the list of providers for the selected locale
-  #data_type_choice = list(data_type_mapping.keys())
+  
   customer_profile_choice = list(customer_profile.keys())
   transactional_choice = list(transactional.keys())
   digital_footprint_choice = list(digital_footprint.keys())
       
   # Ask the user to select data types
-  #data_type_pick = st.multiselect("Select data types", data_type_choice)
-  customer_profile_pick = st.multiselect("Customer Profile", customer_profile_choice)
-  transactional_pick = st.multiselect("Transactional", transactional_choice)
-  digital_footprint_pick = st.multiselect("Digital Footprint", digital_footprint_choice)
-  data_type_pick = [customer_profile_pick,transactional_pick,digital_footprint_pick]
+  data_type_pick = []
+  #customer_profile_pick = st.multiselect("Customer Profile", customer_profile_choice)
+  #transactional_pick = st.multiselect("Transactional", transactional_choice)
+  #digital_footprint_pick = st.multiselect("Digital Footprint", digital_footprint_choice)
+  data_type_pick.extend(st.multiselect("Customer Profile", customer_profile_choice))
+  data_type_pick.extend(st.multiselect("Transactional", transactional_choice))
+  data_type_pick.extend(st.multiselect("Digital Footprint", digital_footprint_choice))
   
   # Use the `number_input` widget to gather the user's desired number of records
   num_records = st.number_input("Enter the number of records to generate", value=1000, min_value=1)
