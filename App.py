@@ -66,8 +66,8 @@ customer_profile = {
 }
 
 transactional = {
-  "tran_date": lambda: fake.date_time_between_dates(datetime_start=datetime(2023,1,1), datetime_end=datetime(2023,1,30)),
-  "tran_datetime": fake.date_time,
+  "tran_date": lambda: fake.date_between_dates(date_start=datetime(2023,1,1), date_end=datetime(2023,1,30)),
+  "tran_datetime": lambda: fake.date_time_between_dates(datetime_start=datetime(2023,1,1), datetime_end=datetime(2023,1,30)),
   "tran_amount": lambda: random.randint(1, 100000),
   "tran_CD": lambda:fake.random_element(elements=("debit", "credit")),
   "tran_status": lambda: fake.random_element(elements=("approved", "declined", "pending")),
@@ -78,7 +78,7 @@ transactional = {
   "currency_code": fake.currency_code,
   "currency_name": fake.currency_name,
   "cryptocurrency_code": fake.cryptocurrency_code,
-  "merchant_id": "AA-{:05d}".format(fake.random_number(digits=5))
+  "merchant_id": lambda: "AA-{:05d}".format(fake.random_number(digits=5))
 }
 
 digital_footprint = {
