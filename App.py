@@ -90,7 +90,7 @@ digital_footprint = {
   "slug": fake.slug,
   "ipv4_network_class": fake.ipv4_network_class,
   "ipv4_private": fake.ipv4_private,
-  "local_ipv4": fake.local_ipv4
+  "local_ipv4": fake.local_ipv4,
   "ascii_company_email":fake.ascii_company_email,
   "ascii_safe_email":fake.ascii_safe_email
 }
