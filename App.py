@@ -96,9 +96,6 @@ digital_footprint = {
 
 data_type_mapping = {**customer_profile, **transactional, **digital_footprint}
 
-st.write(customer_profile)
-st.write(data_type_mapping)
-
 def create_data(type, choice, n):
 
   type = data_type_mapping
