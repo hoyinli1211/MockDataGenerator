@@ -131,9 +131,9 @@ with tab_main:
       
   # Ask the user to select data types
   #data_type_pick = st.multiselect("Select data types", data_type_choice)
-  customer_profile_pick = st.multiselect("Select data types", customer_profile_choice)
-  transactional_pick = st.multiselect("Select data types", transactional_choice)
-  digital_footprint_pick = st.multiselect("Select data types", digital_footprint_choice)
+  customer_profile_pick = st.multiselect("Customer Profile", customer_profile_choice)
+  transactional_pick = st.multiselect("Transactional", transactional_choice)
+  digital_footprint_pick = st.multiselect("Digital Footprint", digital_footprint_choice)
   data_type_pick = [customer_profile_pick,transactional_pick,digital_footprint_pick]
   
   # Use the `number_input` widget to gather the user's desired number of records
