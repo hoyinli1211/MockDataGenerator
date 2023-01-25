@@ -77,7 +77,8 @@ transactional = {
   "credit_card_number": fake.credit_card_number,
   "currency_code": fake.currency_code,
   "currency_name": fake.currency_name,
-  "cryptocurrency_code": fake.cryptocurrency_code
+  "cryptocurrency_code": fake.cryptocurrency_code,
+  "merchant_id": "AA-{:05d}".format(fake.random_number(digits=5))
 }
 
 digital_footprint = {
