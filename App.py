@@ -2,6 +2,7 @@ import streamlit as st
 from faker import Faker
 import pandas as pd
 import random
+from datetime import date, timedelta
 
 #Sidebar
 st.sidebar.title("Instructions:")
@@ -47,6 +48,55 @@ data_type_mapping = {
   "ctp_name": fake.name
 }  
 
+customer_profile = {
+  "name": fake.name,
+  "first_name": fake.first_name,
+  "last_name": fake.last_name,
+  "prefix": fake.prefix,
+  "suffix": fake.suffix,
+  "job": fake.job,
+  "address": fake.address,
+  "email": fake.email,
+  "phone_number": fake.phone_number,
+  "date_of_birth": fake.date_of_birth,
+  "gender": lambda: fake.random_element(elements=("male", "female")),
+  "hkid": fake.hkid,
+  "company_suffix": fake.company_suffix,
+  "company": fake.company,
+}
+
+transactional = {
+  "tran_date": fake.date_this_decade,
+  "tran_datetime": fake.date_time,
+  "tran_amount": lambda: random.randint(1, 100000),
+  "tran_CD": lambda:fake.random_element(elements=("debit", "credit")),
+  "tran_status": lambda: fake.random_element(elements=("approved", "declined", "pending")),
+  "tran_type": lambda:fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
+  "tran_channel": lambda:fake.random_element(elements=("Internet Banking","Mobile Banking","Branch/ATM")),
+  "ctp_name": fake.name
+}
+
+digital_footprint = {
+  "event_datetime": fake.date_time_between_dates(start_date=date(2023,1,1), end_date=date(2023, 1, 30)),
+  "username": fake.user_name,
+  "ipv4": fake.ipv4,
+  "ipv6": fake.ipv6,
+  "mac_address": fake.mac_address,
+  "uuid": fake.uuid4,
+  "user_agent": fake.user_agent,
+  "domain_name": fake.domain_name,
+  "tld": fake.tld,
+  "url": fake.url,
+  "slug": fake.slug,
+  "ipv4_network_class": fake.ipv4_network_class,
+  "ipv4_private": fake.ipv4_private
+  "local_ipv4": fake.local_ipv4
+  "ascii_company_email":fake.ascii_company_email,
+  "ascii_safe_email":fake.ascii_safe_email
+}
+
+data_type_mapping = {**customer_profile, **transactional, **digital_footprint}
+
 def create_data(type, choice, n):
 
   type = data_type_mapping
@@ -75,15 +125,23 @@ with tab_main:
 
   fake = Faker()
   # Get the list of providers for the selected locale
-  data_type_choice = list(data_type_mapping.keys())
-  
+  #data_type_choice = list(data_type_mapping.keys())
+  customer_profile_choice = list(customer_profile.keys())
+  transactional_choice = list(transactiona.keys())
+  digital_footprint_choice = list(digital_footprint.keys())
+      
   # Ask the user to select data types
-  data_type_choice = st.multiselect("Select data types", data_type_choice)
+  #data_type_pick = st.multiselect("Select data types", data_type_choice)
+  customer_profile_pick = st.multiselect("Select data types", customer_profile_choic)
+  transactional_pick = st.multiselect("Select data types", transactional_choice)
+  digital_footprint_pick = st.multiselect("Select data types", digital_footprint_choice)
+  data_type_pick = []
+  data_type_pick = data_type_pick.extend(customer_profile_pick).extend(transactional_pick).extend(digital_footprint_pick)
 
   # Use the `number_input` widget to gather the user's desired number of records
   num_records = st.number_input("Enter the number of records to generate", value=1000, min_value=1)
   
   if st.button("Generate Data"):
-    df=create_data(data_type_mapping, data_type_choice, num_records)
+    df=create_data(data_type_mapping, data_type_pick, num_records)
     st.write('Mock Data',df)
     st.download_button("Download Mock data",df.to_csv(index=False), "mock_data.csv")
