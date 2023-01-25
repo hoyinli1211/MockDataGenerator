@@ -75,7 +75,6 @@ transactional = {
   "tran_channel": lambda:fake.random_element(elements=("Internet Banking","Mobile Banking","Branch/ATM")),
   "ctp_name": fake.name,
   "credit_card_number": fake.credit_card_number,
-  "bank_account_number": fake.bank_account_number,
   "currency_code": fake.currency_code(),
   "currency_name": fake.currency_name(),
   "cryptocurrency_code": fake.cryptocurrency_code()
