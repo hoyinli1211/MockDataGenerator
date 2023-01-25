@@ -94,9 +94,8 @@ digital_footprint = {
   "ascii_safe_email":fake.ascii_safe_email
 }
 
-st.write(customer_profile['name'])
 data_type_mapping = {**customer_profile, **transactional, **digital_footprint}
-st.write(data_type_mapping['name'])
+
 def create_data(type, choice, n):
 
   type = data_type_mapping
